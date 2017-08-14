@@ -1,17 +1,14 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-const app = express();
-const http = require('http').Server(app);
 const port = process.env.PORT || 3000;
-
+const app = express();
 
 //register partial templates
 hbs.registerPartials(__dirname + '/views/partial');
 
 //setup template engine
 app.set('view engine', 'hbs');
-
 
 //register a hbs helper for partials
 hbs.registerHelper('year', () => new Date().getFullYear());
@@ -30,7 +27,6 @@ app.use( (req, res, next) => {
 			console.log('Unable to append data to file');
 		}
 	});
-	console.log(log);
 	next();
 });
 
@@ -70,4 +66,4 @@ app.get('/bad', (req, res) => {
 
 
 
-http.listen(port);
+app.listen(port);
