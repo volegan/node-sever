@@ -35,10 +35,10 @@ app.use( (req, res, next) => {
 
 
 //maintenance middleware
-app.use((req, res, next) => {
-	res.render('maintenance.hbs');
-	next();
-});
+// app.use((req, res, next) => {
+// 	res.render('maintenance.hbs');
+// 	next();
+// });
 
 
 //calling a static page
